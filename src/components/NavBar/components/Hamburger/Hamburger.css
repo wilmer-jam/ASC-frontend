@@ -1,0 +1,82 @@
+.gradient {
+  z-index: -1;
+  background-color:rgba(0,0,0,0.6);  
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.ham {
+  width: 40vw;
+  z-index: 2;
+  background: white;
+  border-radius: 10px 0px 0px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+.ham__top-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-block: 16px 4px;
+  flex-direction: column;
+  background: #B6862C;
+}
+
+.ham__avatar-group {
+  display: flex;
+}
+
+.ham__icon--exit {
+  width: 25px;
+  height: 30.19px;
+}
+
+.ham__list {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  height: 100%;
+  padding: 0;
+  background: white;
+}
+
+.ham__item {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 45px;
+  letter-spacing: 0.20000000298023224px;
+  color: black;
+}
+
+.ham__link {
+  text-decoration: none;
+  color: black;
+}
+
+.ham__buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 36px;
+}
+
+.ham__btn {
+  color: white;
+  width: 150px;
+  height: 45px;
+  display: none;
+}

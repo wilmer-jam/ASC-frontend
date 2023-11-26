@@ -1,0 +1,46 @@
+.faq {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.faq__btn {
+    background: none;
+    border: none;
+    color: white;
+    height: 60px;
+    border-radius: 6px;
+    position: relative;
+    left: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 16px 16px 16px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.faq__selected {
+    margin-top: 70px;
+    width: 100vw;
+}
+
+.faq__header {
+    min-width: 60vw;
+    margin-right: auto;
+    margin-left: 9%;
+    font-size: 2rem;
+}
+
+.selected {
+    color: purple;
+    background: white;
+    font-weight: 600;
+}
+
+.investor-faq {
+    width: 80%;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: 10%;
+}

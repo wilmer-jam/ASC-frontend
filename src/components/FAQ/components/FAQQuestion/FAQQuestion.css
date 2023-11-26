@@ -1,0 +1,27 @@
+.question {
+
+
+}
+.question__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: no-wrap;
+}
+.question__question {
+    font-size: 1.12rem;
+    font-weight: 600;
+    .question:last-child {
+        margin-bottom: 0px;
+    }
+}
+.question__mini-icon {
+    background: none;
+    border: none;
+}
+.question__answer-container {
+
+}
+.question__answer {
+    padding-left: 12px;
+    margin-top: -8px;
+}
