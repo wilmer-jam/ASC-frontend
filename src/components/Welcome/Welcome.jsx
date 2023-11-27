@@ -12,16 +12,25 @@ const Welcome = () => {
         <h1>Academic Success Center</h1>
       </div>
       <div className="welcome-page">
-        <img className="peach" src={ass} alt="ass" />
-        <img className="banana" src={banana} alt="banana" />
-      </div>
-      <div>
-        <h2 className="bio">
-          Helping students achieve their academic goals...
-        </h2>
-        <div className="button">
-          <button onClick={() => navigate("/LogInHub")}>Log In</button>
-          <button onClick={() => navigate("/SignUp")}>Sign Up</button>
+        <div>
+          <img className="peach" src={ass} alt="ass" />
+          <img className="banana" src={banana} alt="banana" />
+        </div>
+        <div className="welcome-page-right">
+          <h2 className="bio">
+            Helping students achieve their academic goals...
+          </h2>
+          <div className="welcome-button">
+            <button
+              className="golden-button golden-button-welcome"
+              onClick={() => navigate("/LogInHub")}
+            >
+              Log In
+            </button>
+            <button className="grey-button" onClick={() => navigate("/SignUp")}>
+              Sign Up
+            </button>
+          </div>
         </div>
       </div>
     </section>

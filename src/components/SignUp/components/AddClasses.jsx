@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddClasses = ({ signUpInfo, setShowClasses }) => {
   const [numClasses, setNumClasses] = useState(0);
   const [classArray, setClassArray] = useState([]);
-  const [locationState, setLocationState] = useState("");
 
-  const location = useLocation();
   const navigate = useNavigate();
 
   let inputArray = [];
@@ -23,10 +21,6 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
     fetch("http://localhost:8000/SignUp", options).then((res) => res.json());
     navigate("/");
   };
-
-  useEffect(() => {
-    setLocationState(location.pathname);
-  }, []);
 
   useEffect(() => {
     for (let i = numClasses; i > 0; i--) {
@@ -101,9 +95,7 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
                 },
               ],
             };
-            if (locationState === "/SignUp") {
-              submitHandlerSignUp(signUpObj);
-            }
+            submitHandlerSignUp(signUpObj);
           }}
         >
           {classArray.map((input, i) => (

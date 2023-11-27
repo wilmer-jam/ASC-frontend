@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const LogInCode = () => {
-  const [user, setUser] = useState({ id: "", email: "", password: "" });
+const LogInCode = ({ setUser }) => {
   const navigate = useNavigate();
 
   const submitHandler = (obj) => {
@@ -11,13 +9,10 @@ const LogInCode = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: obj.email,
-        password: obj.password,
-      }),
+      body: JSON.stringify(obj),
     };
 
-    fetch("http://localhost:8000/LogIn", options).then((res) => {
+    fetch("http://localhost:8000/LogInCode", options).then((res) => {
       res
         .json()
         .then((data) => ({
@@ -25,47 +20,38 @@ const LogInCode = () => {
           status: res.status,
         }))
         .then((res) => {
-          setUser(res.data);
+          setUser({ readOnly: true, ...res.data });
           navigate("/Dashboard");
         });
     });
-
-    console.log(user);
   };
 
   return (
-    <>
-      <section>
-        <h1>Log In Code!</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const obj = {
-              email: formData.get("email") ?? "",
-              password: formData.get("password") ?? "",
-            };
-            submitHandler(obj);
-            e.target.reset();
-          }}
-        >
-          <label htmlFor="email">
-            Email
-            <input id="email" name="email" placeholder="Email" />
-          </label>
-          <label htmlFor="password">
-            Password
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-            />
-          </label>
-          <button>Submit</button>
-        </form>
-      </section>
-    </>
+    <section>
+      <h1>Enter Alternate Access Pass Code: </h1>
+      <form
+        id="passcode-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const obj = { accessCode: formData.get("accessCode") ?? 0 };
+          submitHandler(obj);
+          e.target.reset();
+        }}
+      >
+        <input
+          type="number"
+          placeholder="Alternate Access Passcode"
+          name="accessCode"
+        />
+        <button form="passcode-form" className="golden-button">
+          Submit
+        </button>
+        <button onClick={() => navigate(-1)} className="grey-button">
+          Cancel
+        </button>
+      </form>
+    </section>
   );
 };
 

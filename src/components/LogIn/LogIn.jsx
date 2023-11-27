@@ -24,7 +24,7 @@ const LogIn = ({ setUser }) => {
           status: res.status,
         }))
         .then((res) => {
-          setUser(res.data);
+          setUser({ readOnly: false, ...res.data });
           navigate("/Dashboard");
         });
     });

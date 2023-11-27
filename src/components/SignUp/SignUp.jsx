@@ -1,6 +1,6 @@
 import "./SignUp.css";
 import { useState } from "react";
-import AddClasses from "../Dashboard/components/AddClasses";
+import AddClasses from "./components/AddClasses";
 const SignUp = () => {
   const [signUpInfo, setSignUpInfo] = useState({});
   const [showClasses, setShowClasses] = useState(false);

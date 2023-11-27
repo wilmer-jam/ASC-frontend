@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ConfirmationModal from "../../ConfirmationModal/ConfirmationModal";
 
-const Grades = ({ classes, user }) => {
+const Grades = ({ classes, user, setUser }) => {
   const [isModalOpen, setisModalOpen] = useState();
 
   const gradeSubmitHandler = (obj) => {
@@ -14,7 +14,15 @@ const Grades = ({ classes, user }) => {
     };
 
     fetch("http://localhost:8000/EditStudent", options).then((res) => {
-      res.json();
+      res
+        .json()
+        .then((data) => ({
+          data: data,
+          status: res.status,
+        }))
+        .then((res) => {
+          setUser(res.data);
+        });
     });
   };
 

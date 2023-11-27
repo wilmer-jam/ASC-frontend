@@ -20,6 +20,13 @@ a {
     display: flex;
     background: white;
     align-items: center;
+    height: vh;
+}
+
+.welcome-page-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .welcome-heading {
@@ -27,13 +34,20 @@ a {
     text-align: center;
     justify-content: center;
     background: #081E3F;
+    color: white;
+    font-size: x-large;
 }
 
-.button {
+.welcome-button {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.welcome-button>button {
+    margin-bottom: 24px;
 }
 
 .bio {
@@ -47,18 +61,41 @@ a {
     gap: 30px;
 }
 
+.golden-button {
+    background: #B6862C;
+    color: white;
+    width: 240px;
+    justify-content: center;
+    font-size: medium;
+    border-radius: 24px;
+    border: #B6862C;
+    height: 40px;
+}
+
+.grey-button {
+    background-color: grey;
+    color: white;
+    width: 240px;
+    font-size: medium;
+    border-radius: 24px;
+    border: #B6862C;
+    height: 40px;
+}
+
+
 /* LoginHub Styling */
 .hub-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: auto;
-    height: auto;
+    width: vw;
+    height: 1000px;
 }
 
 .hub-heading {
     display: flex;
     background-color: #081E3F;
+    color: white;
     text-align: center;
     font-size: x-large;
     justify-content: center;
@@ -77,22 +114,6 @@ a {
     align-items: center;
 }
 
-.golden-button {
-    background: #B6862C;
-    color: white;
-    width: 240px;
-    justify-content: center;
-    font-size: medium;
-}
-
-.grey-button {
-    background-color: grey;
-    color: white;
-    width: 240px;
-    font-size: medium;
-
-}
-
 /* Login Styling */
 .login-container {
     background-color: white;
@@ -104,7 +125,7 @@ a {
     text-align: left;
     color: white;
     height: 5em;
-    justify-self: auto;
+    justify-items: center;
     background-color: #081E3F;
     font-size: x-large;
     margin-top: 0;
@@ -125,3 +146,31 @@ a {
     width: fit-content;
     align-self: center;
 }
+
+/* Dashboard Styling */
+.homepage {
+    display: flex;
+    flex-direction: row;
+}
+
+.goals-and-rec {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.class-heading {
+    color: black;
+    font-size: large;
+}
+
+.class-grade {
+    color: white;
+    font-size: medium;
+}
+
+/* Input Credit Hours stlyling*/

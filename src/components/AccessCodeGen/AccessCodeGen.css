@@ -1,0 +1,14 @@
+.access-code-modal {
+  position: absolute;
+  top: 20vh;
+  left: 80%;
+  width: 80%;
+  height: 60%;
+  background: #B6862C;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  padding: 24px;
+  border-radius: 8px;
+  color: white;
+}

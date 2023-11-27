@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Hamburger.css";
 import rodolfo from "../../../../assets/rodolfo.svg";
 import { Link } from "react-router-dom";
+import AccessCodeGen from "../../../AccessCodeGen/AccessCodeGen";
 
-function Hamburger({ setShowModal }) {
+function Hamburger({ setShowModal, user }) {
+  const [showAccessCode, setShowAccessCode] = useState(false);
   const handleClick = () => {
     setShowModal(false);
   };
@@ -53,13 +55,28 @@ function Hamburger({ setShowModal }) {
           </Link>
         </li>
         <li className="ham__item">
-          <Link onClick={() => setShowModal(false)}>
+          <button
+            onClick={() => {
+              setShowAccessCode(true);
+            }}
+          >
+            <img src="" alt="" />
+            <p>Access Code</p>
+          </button>
+        </li>
+        <li className="ham__item">
+          <Link to="/" onClick={() => setShowModal(false)}>
             <img src="" alt="" />
             <p>Log Out</p>
           </Link>
         </li>
       </ul>
       <button className="gradient" onClick={() => setShowModal(false)}></button>
+      <AccessCodeGen
+        isOpen={showAccessCode}
+        setIsOpen={setShowAccessCode}
+        user={user}
+      />
     </div>
   );
 }
