@@ -39,7 +39,6 @@ const ManageClasses = ({ classes, user, setUser, darkMode }) => {
   };
 
   useEffect(() => {
-    console.log(classes);
     if (!classes) {
       navigate("/LogIn");
     }

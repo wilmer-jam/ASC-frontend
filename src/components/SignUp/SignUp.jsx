@@ -55,7 +55,6 @@ const SignUp = () => {
       </section>
     );
   else {
-    console.log(signUpInfo);
     return (
       <AddClasses signUpInfo={signUpInfo} setShowClasses={setShowClasses} />
     );
