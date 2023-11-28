@@ -27,7 +27,6 @@ const CreditHours = ({ classes, user, darkMode }) => {
       }}
     >
       <section>
-        <h1>Credit Hours</h1>
         <form
           id="credit-form"
           onSubmit={(e) => {
@@ -96,16 +95,16 @@ const CreditHours = ({ classes, user, darkMode }) => {
           {classes?.map((classElement, i) => {
             if (classElement.className === "") return null;
             return (
-              <div key={i}>
+              <div key={i} className="classname-input">
                 <label htmlFor={`creditHours ${i + 1}`}>
                   {classElement.className}
                 </label>
-                <input type="text" name={`creditHours${i + 1}`} />
+                <input className="input-box" type="text" name={`creditHours${i + 1}`} />
               </div>
             );
           })}
+          <button className="form-button" form="credit-form">Submit</button>
         </form>
-        <button form="credit-form">Submit</button>
       </section>
 
       <ConfirmationModal

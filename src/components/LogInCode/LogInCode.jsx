@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const LogInCode = ({ setUser }) => {
+const LogInCode = ({ setUser, setReadOnly }) => {
   const navigate = useNavigate();
 
   const submitHandler = (obj) => {
@@ -20,7 +20,8 @@ const LogInCode = ({ setUser }) => {
           status: res.status,
         }))
         .then((res) => {
-          setUser({ readOnly: true, ...res.data });
+          setUser({ ...res.data });
+          setReadOnly(true);
           navigate("/Dashboard");
         });
     });
@@ -28,13 +29,15 @@ const LogInCode = ({ setUser }) => {
 
   return (
     <section>
-      <h1>Enter Alternate Access Pass Code: </h1>
+      <h1 className="sign-up-head">Enter Alternate Access Pass Code: </h1>
       <form
         id="passcode-form"
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
-          const obj = { accessCode: formData.get("accessCode") ?? 0 };
+          const obj = {
+            accessCode: formData.get("accessCode") ?? 0,
+          };
           submitHandler(obj);
           e.target.reset();
         }}

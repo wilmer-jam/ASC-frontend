@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import ass from "../../assets/ass.png";
-import banana from "../../assets/bananas-banana.svg";
+import student1 from "../../assets/smiling-student.jpg";
+import student2 from "../../assets/smiling-student2.jpg";
 import "./Welcome.css";
 
 const Welcome = () => {
@@ -12,9 +12,9 @@ const Welcome = () => {
         <h1>Academic Success Center</h1>
       </div>
       <div className="welcome-page">
-        <div>
-          <img className="peach" src={ass} alt="ass" />
-          <img className="banana" src={banana} alt="banana" />
+        <div className="welcome-page-left">
+          <img className="student1" src={student1} alt="Student 1" />
+          <img className="student2" src={student2} alt="Student 2" />
         </div>
         <div className="welcome-page-right">
           <h2 className="bio">

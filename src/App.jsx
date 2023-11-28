@@ -20,10 +20,12 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 const App = () => {
   const [user, setUser] = useState({});
+  //this is how codelogin works
+  const [readOnly, setReadOnly] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
-
+  console.log(user);
   const handleIdle = () => {
     setOpenModal(true);
   };
@@ -43,8 +45,17 @@ const App = () => {
         <Route path="/" element={<Welcome />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/LogInHub" element={<LogInHub />} />
-        <Route path="/LogIn" element={<LogIn setUser={setUser} />} />
-        <Route path="/LogInCode" element={<LogInCode setUser={setUser} />} />
+        <Route
+          path="/LogIn"
+          //this is codelogin important
+          element={<LogIn setUser={setUser} setReadOnly={setReadOnly} />}
+        />
+        <Route
+          path="/LogInCode"
+          //this is codelogin important
+
+          element={<LogInCode setUser={setUser} setReadOnly={setReadOnly} />}
+        />
         <Route
           path="/ForgotPassword"
           element={<ForgotPassword setUser={setUser} user={user} />}
@@ -95,7 +106,10 @@ const App = () => {
         <Route
           path="/Dashboard"
           exact
-          element={<Dashboard user={user} darkMode={darkMode} />}
+          element={
+            //this is codelogin important
+            <Dashboard user={user} darkMode={darkMode} readOnly={readOnly} />
+          }
         />
       </Routes>
       {openModal ? (

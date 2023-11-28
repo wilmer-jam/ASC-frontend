@@ -1,7 +1,31 @@
 .nav {
-  height: 50px;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100vw;
+  background: #081E3F;
 }
 
 .nav__stuff {
-  height: 100px;
+  display: flex;
+  align-content: center;
+  padding-top: 100px;
+  width: 100vw;
+  height: 50px;
+  padding-top: 5px;
+}
+
+.ham-head{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: white;
+  font-size: 48px;
+}
+
+.ham-title{
+  font-size: 48px;
+  margin: 0;
+  margin-left: 5px;
+  color: grey;
 }

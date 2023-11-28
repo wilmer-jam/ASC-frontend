@@ -59,10 +59,9 @@ const ManageClasses = ({ classes, user, setUser, darkMode }) => {
       }}
     >
       <div>
-        <h1>Academic Success Center</h1>
       </div>
       <div>
-        <h2>Add or Delete Classes</h2>
+        <h2 className="manage-class-title">Add or Delete Classes</h2>
       </div>
       <div>
         <form
@@ -145,10 +144,10 @@ const ManageClasses = ({ classes, user, setUser, darkMode }) => {
               );
             } else {
               return (
-                <div key={i + 25}>
+                <div key={i + 25} className="manage-class">
                   <p>{className}</p>
-                  <button onClick={() => deleteHandler(i)}>
-                    <img style={{ width: "12px" }} src={xIcon} alt="" />
+                  <button className="delete-button" onClick={() => deleteHandler(i)}>
+                    <img className="delete-class" style={{ width: "12px" }} src={xIcon} alt="" />
                   </button>
                 </div>
               );
@@ -156,9 +155,9 @@ const ManageClasses = ({ classes, user, setUser, darkMode }) => {
           })}
         </form>
       </div>
-      <div>
-        <button onClick={() => navigate(-1)}>Cancel</button>
-        <button type="submit" form="class-form">
+      <div className="manage-class-button">
+        <button className="grey-button" onClick={() => navigate(-1)}>Cancel</button>
+        <button className="golden-button" type="submit" form="class-form">
           Finish
         </button>
       </div>

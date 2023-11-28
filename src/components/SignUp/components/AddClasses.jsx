@@ -32,9 +32,9 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
   return (
     <section>
       <div>
-        <h1>Academic Success Center</h1>
+        <h1 className="sign-up-head">Academic Success Center</h1>
       </div>
-      <div>
+      <div className="class-select">
         <h2>What classes are you taking?</h2>
         <select
           name="classes"
@@ -97,16 +97,16 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
           }}
         >
           {classArray.map((input, i) => (
-            <div key={Math.random()}>
-              <label htmlFor="class">Class {i + 1}</label>
+            <div key={Math.random()} className="class-name-input">
+              <label htmlFor="class" >Class {i + 1}</label>
               <input placeholder="Name" type="text" name={String(i + 1)} />
             </div>
           ))}
         </form>
       </div>
-      <div>
-        <button onClick={() => setShowClasses(false)}>Previous</button>
-        <button type="submit" form="class-form">
+      <div className="class-select-button">
+        <button className="grey-button" onClick={() => setShowClasses(false)}>Previous</button>
+        <button className="golden-button" type="submit" form="class-form">
           Finish
         </button>
       </div>

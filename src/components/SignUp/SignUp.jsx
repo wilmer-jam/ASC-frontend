@@ -8,8 +8,8 @@ const SignUp = () => {
   if (!showClasses)
     return (
       <section>
-        <h1>Sign Up!</h1>
-        <form
+        <h1 className="sign-up-head">Sign Up!</h1>
+        <form className="sign-up-form"
           onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
@@ -23,6 +23,16 @@ const SignUp = () => {
             setShowClasses(true);
           }}
         >
+          <label htmlFor="name">
+            Name
+            <input
+              id="name"
+              name="name"
+              onChange={() => {}}
+              placeholder="Name"
+              required
+            />
+          </label>
           <label htmlFor="email">
             Email
             <input
@@ -50,7 +60,7 @@ const SignUp = () => {
             <option value="spring">Spring</option>
             <option value="summer">Summer</option>
           </select>
-          <button>Submit</button>
+          <button className="golden-button">Submit</button>
         </form>
       </section>
     );

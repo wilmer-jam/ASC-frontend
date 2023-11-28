@@ -7,7 +7,7 @@ const ConfirmationModal = ({ copy, button, isOpen }) => {
   return (
     <section className="modal" style={{ display: isOpen ? "flex" : "none" }}>
       <h1>{copy}</h1>
-      <button onClick={() => navigate("/Dashboard")}>{button}</button>
+      <button className="golden-button" onClick={() => navigate("/Dashboard")}>{button}</button>
     </section>
   );
 };

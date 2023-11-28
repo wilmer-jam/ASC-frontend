@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const LogIn = ({ setUser }) => {
+const LogIn = ({ setUser, setReadOnly }) => {
   const navigate = useNavigate();
 
   const submitHandler = (obj) => {
@@ -23,7 +23,8 @@ const LogIn = ({ setUser }) => {
           status: res.status,
         }))
         .then((res) => {
-          setUser({ readOnly: false, ...res.data });
+          setUser({ ...res.data });
+          setReadOnly(true);
           navigate("/Dashboard");
         });
     });

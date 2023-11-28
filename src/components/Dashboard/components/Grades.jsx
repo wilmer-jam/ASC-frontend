@@ -44,7 +44,6 @@ const Grades = ({ classes, user, setUser, darkMode }) => {
       }}
     >
       <section>
-        <h1>Input Grades</h1>
         <form
           id="grade-form"
           onSubmit={(e) => {
@@ -137,11 +136,11 @@ const Grades = ({ classes, user, setUser, darkMode }) => {
           {classes?.map((classElement, i) => {
             if (classElement.className === "") return null;
             return (
-              <div key={i}>
+              <div key={i} className="classname-input">
                 <label htmlFor={`grades${i + 1}`}>
                   {classElement.className}
                 </label>
-                <select required name={`grades${i + 1}`}>
+                <select className="input-box" required name={`grades${i + 1}`}>
                   <option value="">-- Select Grade</option>
                   <option value="A">A</option>
                   <option value="B">B</option>
@@ -152,8 +151,8 @@ const Grades = ({ classes, user, setUser, darkMode }) => {
               </div>
             );
           })}
+          <button className="form-button" form="grade-form">Submit</button>
         </form>
-        <button form="grade-form">Submit</button>
       </section>
 
       <ConfirmationModal

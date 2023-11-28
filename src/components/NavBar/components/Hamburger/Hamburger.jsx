@@ -32,8 +32,7 @@ function Hamburger({ setShowModal, user, setDarkMode, darkMode }) {
             <img src={rodolfo} style={{ width: "10px" }} alt="avatar" />
           </button>
           <div>
-            <h3>Pablo Alarcon</h3>
-            <p>Student</p>
+            <h3>Student</h3>
           </div>
         </div>
         <button onClick={() => setDarkMode(!darkMode)}>

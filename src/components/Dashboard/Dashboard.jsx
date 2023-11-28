@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
-const Dashboard = ({ user, darkMode }) => {
+const Dashboard = ({ user, darkMode, readOnly }) => {
   const navigate = useNavigate();
 
   const colors = {
@@ -20,7 +20,8 @@ const Dashboard = ({ user, darkMode }) => {
     }
   }, []);
 
-  if (user?.readOnly) {
+  //this is codelogin important
+  if (readOnly) {
     return (
       <section>
         <h1 style={{ color: darkMode ? "white" : "darkgrey" }}>Dashboard</h1>
@@ -49,7 +50,6 @@ const Dashboard = ({ user, darkMode }) => {
           color: darkMode ? "white" : "#353839",
         }}
       >
-        <h1 style={{}}>Dashboard</h1>
         <div className="homepage">
           <div className="homepage-left">
             Hello! Here`s what your semester looks like:
@@ -74,7 +74,10 @@ const Dashboard = ({ user, darkMode }) => {
             </div>
           </div>
           <div className="homepage-right">
-            <div className="goals-and-rec">
+            <div
+              className="goals-and-rec"
+              style={{ display: user?.readOnly ? "none" : "flex" }}
+            >
               <button onClick={() => navigate("/Dashboard/CreditHours")}>
                 Input credit hours
               </button>

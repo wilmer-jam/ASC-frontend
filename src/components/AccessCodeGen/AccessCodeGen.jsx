@@ -19,9 +19,9 @@ const AccessCodeGen = ({ isOpen, setIsOpen, user }) => {
         }))
         .then((res) => {
           res.data;
+          setIsOpen(false);
         });
     });
-    setIsOpen(false);
   };
 
   return (
@@ -29,7 +29,7 @@ const AccessCodeGen = ({ isOpen, setIsOpen, user }) => {
       className="access-code-modal"
       style={{ display: isOpen ? "flex" : "none" }}
     >
-      <h1>Set Your Access Code</h1>
+      <h1 className="sign-up-head">Set Your Access Code</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
