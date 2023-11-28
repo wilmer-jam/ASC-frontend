@@ -3,7 +3,7 @@ import hamburgerIcon from "../../assets/icons/hamburger.svg";
 import Hamburger from "./components/Hamburger/Hamburger";
 import { useState } from "react";
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, setDarkMode, darkMode }) => {
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
 
@@ -34,7 +34,14 @@ const NavBar = ({ user }) => {
           <h2>ASC</h2>
         </div>
       </nav>
-      {showModal ? <Hamburger setShowModal={setShowModal} user={user} /> : null}
+      {showModal ? (
+        <Hamburger
+          setShowModal={setShowModal}
+          user={user}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+      ) : null}
     </div>
   );
 };

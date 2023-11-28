@@ -29,8 +29,6 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
     setClassArray([...inputArray]);
   }, [numClasses]);
 
-  console.log(signUpInfo);
-
   return (
     <section>
       <div>

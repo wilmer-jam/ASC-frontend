@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LogIn = ({ setUser }) => {
   const navigate = useNavigate();
@@ -49,17 +48,19 @@ const LogIn = ({ setUser }) => {
         >
           <label htmlFor="email">
             Email
-            <input id="email" name="email" placeholder="Email" />
+            <input id="email" name="email" required placeholder="Email" />
           </label>
           <label htmlFor="password">
             Password
             <input
+              required
               type="password"
               id="password"
               name="password"
               placeholder="Password"
             />
           </label>
+          <Link to="/ForgotPassword">Forgot Password</Link>
           <button className="submit-login">Submit</button>
         </form>
       </section>

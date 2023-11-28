@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
-const Dashboard = ({ user }) => {
+const Dashboard = ({ user, darkMode }) => {
   const navigate = useNavigate();
 
   const colors = {
@@ -15,7 +15,7 @@ const Dashboard = ({ user }) => {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (!user.email) {
       navigate("/LogIn");
     }
   }, []);
@@ -23,7 +23,7 @@ const Dashboard = ({ user }) => {
   if (user?.readOnly) {
     return (
       <section>
-        <h1 style={{ color: "white" }}>Dashboard</h1>
+        <h1 style={{ color: darkMode ? "white" : "darkgrey" }}>Dashboard</h1>
         <div className="homepage">
           <div>
             Hello! Here`s what your semester looks like:
@@ -43,13 +43,18 @@ const Dashboard = ({ user }) => {
     );
   } else {
     return (
-      <section>
-        <h1 style={{ color: "white" }}>Dashboard</h1>
+      <section
+        style={{
+          background: darkMode ? "#353839" : "white",
+          color: darkMode ? "white" : "#353839",
+        }}
+      >
+        <h1 style={{}}>Dashboard</h1>
         <div className="homepage">
           <div className="homepage-left">
             Hello! Here`s what your semester looks like:
             <div className="card-group">
-              {user?.semesters[0]?.semester.classes.map((classElement, i) => {
+              {user?.semesters?.[0]?.semester.classes.map((classElement, i) => {
                 if (!classElement.className) return null;
                 return (
                   <div

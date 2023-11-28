@@ -1,6 +1,6 @@
 .gradient {
   z-index: -1;
-  background-color:rgba(0,0,0,0.6);  
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -58,12 +58,12 @@
   font-weight: 400;
   line-height: 45px;
   letter-spacing: 0.20000000298023224px;
-  color: black;
+  color: #353839;
 }
 
 .ham__link {
   text-decoration: none;
-  color: black;
+  color: #353839;
 }
 
 .ham__buttons {
@@ -79,4 +79,13 @@
   width: 150px;
   height: 45px;
   display: none;
+}
+
+.ham__img {
+  width: 20px;
+}
+
+.ham__link {
+  background: transparent;
+
 }

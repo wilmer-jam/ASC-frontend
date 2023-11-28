@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import ConfirmationModal from "../../ConfirmationModal/ConfirmationModal";
 
-const Grades = ({ classes, user, setUser }) => {
+const Grades = ({ classes, user, setUser, darkMode }) => {
   const [isModalOpen, setisModalOpen] = useState();
+
+  const gradeWeightObj = {
+    A: 5.0,
+    B: 4.0,
+    C: 3.0,
+    D: 2.0,
+    F: 1.0,
+    "": 0,
+  };
 
   const gradeSubmitHandler = (obj) => {
     const options = {
@@ -27,7 +36,13 @@ const Grades = ({ classes, user, setUser }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        background: darkMode ? "#353839" : "white",
+        color: darkMode ? "white" : "#353839",
+      }}
+    >
       <section>
         <h1>Input Grades</h1>
         <form
@@ -52,6 +67,8 @@ const Grades = ({ classes, user, setUser }) => {
                           user?.semesters[0]?.semester.classes[0]
                             ?.creditHours ?? "",
                         grade: formData.get("grades1") ?? "",
+                        gradeWeight:
+                          gradeWeightObj[formData.get("grades1") ?? ""],
                       },
                       {
                         className:
@@ -61,6 +78,8 @@ const Grades = ({ classes, user, setUser }) => {
                           user?.semesters[0]?.semester.classes[1]
                             ?.creditHours ?? "",
                         grade: formData.get("grades2") ?? "",
+                        gradeWeight:
+                          gradeWeightObj[formData.get("grades2") ?? ""],
                       },
                       {
                         className:
@@ -70,6 +89,8 @@ const Grades = ({ classes, user, setUser }) => {
                           user?.semesters[0]?.semester.classes[2]
                             ?.creditHours ?? "",
                         grade: formData.get("grades3") ?? "",
+                        gradeWeight:
+                          gradeWeightObj[formData.get("grades3") ?? ""],
                       },
                       {
                         className:
@@ -79,6 +100,8 @@ const Grades = ({ classes, user, setUser }) => {
                           user?.semesters[0]?.semester.classes[3]
                             ?.creditHours ?? "",
                         grade: formData.get("grades4") ?? "",
+                        gradeWeight:
+                          gradeWeightObj[formData.get("grades4") ?? ""],
                       },
                       {
                         className:
@@ -88,6 +111,8 @@ const Grades = ({ classes, user, setUser }) => {
                           user?.semesters[0]?.semester.classes[4]
                             ?.creditHours ?? "",
                         grade: formData.get("grades5") ?? "",
+                        gradeWeight:
+                          gradeWeightObj[formData.get("grades5") ?? ""],
                       },
                       {
                         className:
@@ -97,6 +122,8 @@ const Grades = ({ classes, user, setUser }) => {
                           user?.semesters[0]?.semester.classes[5]
                             ?.creditHours ?? "",
                         grade: formData.get("grades6") ?? "",
+                        gradeWeight:
+                          gradeWeightObj[formData.get("grades6") ?? ""],
                       },
                     ],
                   },
@@ -111,10 +138,17 @@ const Grades = ({ classes, user, setUser }) => {
             if (classElement.className === "") return null;
             return (
               <div key={i}>
-                <label htmlFor={`grades ${i + 1}`}>
+                <label htmlFor={`grades${i + 1}`}>
                   {classElement.className}
                 </label>
-                <input type="text" name={`grades${i + 1}`} />
+                <select required name={`grades${i + 1}`}>
+                  <option value="">-- Select Grade</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="F">F</option>
+                </select>
               </div>
             );
           })}

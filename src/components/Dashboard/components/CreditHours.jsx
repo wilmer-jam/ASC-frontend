@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ConfirmationModal from "../../ConfirmationModal/ConfirmationModal";
 
-const CreditHours = ({ classes, user }) => {
+const CreditHours = ({ classes, user, darkMode }) => {
   const [isModalOpen, setisModalOpen] = useState();
 
   const creditSubmitHandler = (obj) => {
@@ -19,7 +19,13 @@ const CreditHours = ({ classes, user }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        background: darkMode ? "#353839" : "white",
+        color: darkMode ? "white" : "#353839",
+      }}
+    >
       <section>
         <h1>Credit Hours</h1>
         <form

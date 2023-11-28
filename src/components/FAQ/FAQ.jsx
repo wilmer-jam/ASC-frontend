@@ -1,7 +1,7 @@
 import FAQQuestion from "./components/FAQQuestion/FAQQuestion";
 import "./FAQ.css";
 
-const FAQ = () => {
+const FAQ = ({ darkMode }) => {
   const FAQs = [
     {
       question: "How do I get recommended classes?",
@@ -10,10 +10,6 @@ const FAQ = () => {
     },
     {
       question: "How do I input my credit hours?",
-      answer: "Answer",
-    },
-    {
-      question: "How do I sync to Canvas?",
       answer: "Answer",
     },
     {
@@ -27,7 +23,13 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="investor-faq">
+    <section
+      className="investor-faq"
+      style={{
+        background: darkMode ? "#353839" : "white",
+        color: darkMode ? "white" : "#353839",
+      }}
+    >
       {FAQs.map((question) => (
         <FAQQuestion
           key={Math.random()}

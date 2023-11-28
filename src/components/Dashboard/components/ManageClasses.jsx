@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import xIcon from "../../../assets/icons/x.png";
+import ClassInput from "./ClassInput";
 
-const ManageClasses = ({ classes, user, setUser }) => {
+const ManageClasses = ({ classes, user, setUser, darkMode }) => {
   const [state, setState] = useState([
-    classes[0]?.className,
-    classes[1]?.className,
-    classes[2]?.className,
-    classes[3]?.className,
-    classes[4]?.className,
-    classes[5]?.className,
+    classes?.[0]?.className || "",
+    classes?.[1]?.className || "",
+    classes?.[2]?.className || "",
+    classes?.[3]?.className || "",
+    classes?.[4]?.className || "",
+    classes?.[5]?.className || "",
   ]);
 
   const navigate = useNavigate();
@@ -34,10 +35,12 @@ const ManageClasses = ({ classes, user, setUser }) => {
           setUser(res.data);
         });
     });
+    navigate("/Dashboard");
   };
 
   useEffect(() => {
-    if (!user) {
+    console.log(classes);
+    if (!classes) {
       navigate("/LogIn");
     }
   }, []);
@@ -50,7 +53,12 @@ const ManageClasses = ({ classes, user, setUser }) => {
   };
 
   return (
-    <section>
+    <section
+      style={{
+        background: darkMode ? "#353839" : "white",
+        color: darkMode ? "white" : "#353839",
+      }}
+    >
       <div>
         <h1>Academic Success Center</h1>
       </div>
@@ -129,18 +137,16 @@ const ManageClasses = ({ classes, user, setUser }) => {
             if (state[i - 1] === "") return null;
             if (className === "") {
               return (
-                <div key={Math.random()}>
-                  <input
-                    placeholder="Add Class"
-                    type="text"
-                    name={String(i + 1)}
-                  />
-                  <button>Add</button>
-                </div>
+                <ClassInput
+                  key={i + 50}
+                  state={state}
+                  setState={setState}
+                  i={i}
+                />
               );
             } else {
               return (
-                <div key={Math.random()}>
+                <div key={i + 25}>
                   <p>{className}</p>
                   <button onClick={() => deleteHandler(i)}>
                     <img style={{ width: "12px" }} src={xIcon} alt="" />
