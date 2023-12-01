@@ -28,16 +28,19 @@ const Dashboard = ({ user, darkMode, readOnly }) => {
         <div className="homepage">
           <div>
             Hello! Here`s what your semester looks like:
-            {user?.semesters[0]?.semester.classes.map((classElement, i) => (
-              <div style={{ background: colors[i] }} key={i} className="card">
-                <h2 className="card-heading">{classElement.className}</h2>
-                {classElement.grade ? (
-                  <p className="card-grade">
-                    Current grade: {classElement.grade}
-                  </p>
-                ) : null}
-              </div>
-            ))}
+            {user?.semesters?.[0]?.semester.classes.map((classElement, i) => {
+              if (!classElement.className) return null;
+              return (
+                <div style={{ background: colors[i] }} key={i} className="card">
+                  <h2 className="card-heading">{classElement.className}</h2>
+                  {classElement.grade ? (
+                    <p className="card-grade">
+                      Current grade: {classElement.grade}
+                    </p>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

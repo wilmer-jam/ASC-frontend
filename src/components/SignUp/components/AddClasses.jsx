@@ -18,7 +18,10 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
       body: JSON.stringify(obj),
     };
 
-    fetch("http://localhost:8000/SignUp", options).then((res) => res.json());
+    fetch("http://localhost:8000/SignUp", options).then((res) => {
+      res.json();
+      console.log(res);
+    });
     navigate("/");
   };
 
@@ -59,6 +62,7 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
             const signUpObj = {
               email: signUpInfo.email,
               password: signUpInfo.password,
+              name: signUpInfo.name,
               semesters: [
                 {
                   semester: {
@@ -98,14 +102,16 @@ const AddClasses = ({ signUpInfo, setShowClasses }) => {
         >
           {classArray.map((input, i) => (
             <div key={Math.random()} className="class-name-input">
-              <label htmlFor="class" >Class {i + 1}</label>
+              <label htmlFor="class">Class {i + 1}</label>
               <input placeholder="Name" type="text" name={String(i + 1)} />
             </div>
           ))}
         </form>
       </div>
       <div className="class-select-button">
-        <button className="grey-button" onClick={() => setShowClasses(false)}>Previous</button>
+        <button className="grey-button" onClick={() => setShowClasses(false)}>
+          Previous
+        </button>
         <button className="golden-button" type="submit" form="class-form">
           Finish
         </button>

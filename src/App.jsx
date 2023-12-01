@@ -48,7 +48,7 @@ const App = () => {
         <Route
           path="/LogIn"
           //this is codelogin important
-          element={<LogIn setUser={setUser} setReadOnly={setReadOnly} />}
+          element={<LogIn setUser={setUser} />}
         />
         <Route
           path="/LogInCode"

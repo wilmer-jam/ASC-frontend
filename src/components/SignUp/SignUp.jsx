@@ -9,7 +9,8 @@ const SignUp = () => {
     return (
       <section>
         <h1 className="sign-up-head">Sign Up!</h1>
-        <form className="sign-up-form"
+        <form
+          className="sign-up-form"
           onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
@@ -17,6 +18,7 @@ const SignUp = () => {
             const obj = {
               email: formData.get("email") ?? "",
               password: formData.get("password") ?? "",
+              name: formData.get("name") ?? "",
               semesterName: formData.get("semester") + date.getFullYear() ?? "",
             };
             setSignUpInfo(obj);
