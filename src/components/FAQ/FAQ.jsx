@@ -6,19 +6,19 @@ const FAQ = ({ darkMode }) => {
     {
       question: "How do I get recommended classes?",
 
-      answer: "Answer",
+      answer: "To get recommended classes, log in and select the semester you are looking for classes in. Then a selection of classes will appear.",
     },
     {
       question: "How do I input my credit hours?",
-      answer: "Answer",
+      answer: "To input credit hours, click on the text box near the classes and enter a valid number",
     },
     {
       question: "How do I delete my account?",
-      answer: "Answer",
+      answer: "Contact an Administrator or support specialist.",
     },
     {
       question: "How can I change any inputs?",
-      answer: "Answer",
+      answer: "Enter the value, and then click save button below, to lock in changes.",
     },
   ];
 
