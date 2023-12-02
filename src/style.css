@@ -21,6 +21,7 @@ a {
     background: white;
     align-items: center;
     height: vh;
+    font-style: italic;
 }
 
 .welcome-page-right {
@@ -115,6 +116,7 @@ a {
 
 .login-options > .golden-button, .login-options > .grey-button{
     width: 30%;
+    height: 50px;
 }
 
 .login-options {
@@ -154,14 +156,21 @@ a {
     text-align: center;
     gap: 30px;
     font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .submit-login {
-    display: flex;
+    background: #B6862C;
     color: white;
-    background-color: #B6862C;
-    width: fit-content;
-    align-self: center;
+    width: 150px;
+    justify-content: center;
+    font-size: medium;
+    border-radius: 24px;
+    border: #B6862C;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Dashboard Styling */
