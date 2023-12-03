@@ -83,7 +83,7 @@ a {
 }
 
 .grey-button {
-    background-color: grey;
+    background-color: rgb(164, 156, 156);
     color: white;
     width: 240px;
     font-size: medium;
@@ -203,7 +203,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: grey;
+    background: #d9d9d9;
     border-radius: 8px;
     gap: 10px;
     margin-left: 50px;
@@ -213,9 +213,22 @@ a {
 }
 
 .goals-and-rec > button{
+    background-color: #8b8a8a;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 240px;
+    font-size: medium;
+    border-radius: 24px;
+    border: #B6862C;
+    height: 40px;
+  /*  background: red;
     margin-top: 25px;
     width: auto;
-    font-size: 20px;
+    font-size: 20px; */
+}
+.goals-and-rec > button:hover{
+    background-color:#002ead;
+    transition: 0.7s;
 }
 .card {
     display: flex;
@@ -247,7 +260,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width:60%;
+    width:50%;
     margin-top: 40px;
     font-size: 25px;
 }
@@ -334,7 +347,7 @@ a {
 .manage-class-button{
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 50\px;
 }
 
 /* Sign UP Styling */
@@ -394,4 +407,15 @@ a {
 
 #passcode-form > button{
     margin: 30px;
+}
+
+.autoLog{
+    background-color: #8b8a8a;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 240px;
+    font-size: medium;
+    border-radius: 24px;
+    border: #B6862C;
+    height: 40px;
 }
