@@ -27,7 +27,7 @@ const Dashboard = ({ user, darkMode, readOnly }) => {
         <h1 style={{ color: darkMode ? "white" : "darkgrey" }}>Dashboard</h1>
         <div className="homepage">
           <div>
-            Welcome, Here`s your semester plan:
+            Welcome, Here is your semester plan:
             {user?.semesters?.[0]?.semester.classes.map((classElement, i) => {
               if (!classElement.className) return null;
               return (
@@ -55,7 +55,7 @@ const Dashboard = ({ user, darkMode, readOnly }) => {
       >
         <div className="homepage">
           <div className="homepage-left">
-            Welcome, Here`s your semester plan:
+            Welcome, Here is your semester plan:
             <div className="card-group">
               {user?.semesters?.[0]?.semester.classes.map((classElement, i) => {
                 if (!classElement.className) return null;
