@@ -55,7 +55,7 @@ const Dashboard = ({ user, darkMode, readOnly }) => {
       >
         <div className="homepage">
           <div className="homepage-left">
-            Hello! Here`s what your semester looks like:
+            Welcome, Here`s your semester plan:
             <div className="card-group">
               {user?.semesters?.[0]?.semester.classes.map((classElement, i) => {
                 if (!classElement.className) return null;
