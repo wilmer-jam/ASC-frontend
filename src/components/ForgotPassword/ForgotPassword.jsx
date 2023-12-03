@@ -4,10 +4,11 @@ import ChangePassword from "../ChangePassword/ChangePassword";
 const ForgotPassword = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [openChangePassword, setOpenChangePassword] = useState(false);
+  const [passwordLinkSent, setPasswordLinkSent] = useState(false);
+  const [passwordLinkError, setPasswordLinkError] = useState(false);
 
   const sendResetLink = async (userEmail) => {
     try {
-    // reset email link
       const response = await fetch("http://localhost:8000/SendResetLink", {
         method: "POST",
         headers: {
@@ -18,13 +19,17 @@ const ForgotPassword = ({ setUser }) => {
 
       if (response.ok) {
         setOpenChangePassword(true);
+        setPasswordLinkSent(true);
+        setPasswordLinkError(false);
       } else {
-        console.error("Password Reset Link Failed To Send, Please Try Again");
-       
+        setPasswordLinkError(true);
+        setPasswordLinkSent(false);
       }
     } catch (error) {
-      console.error("Password Reset Link encountered error, Please review email entry and try again", error);
-         }
+      console.error("Password Reset Link encountered an error. Please review the email entry and try again.", error);
+      setPasswordLinkError(true);
+      setPasswordLinkSent(false);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -39,12 +44,13 @@ const ForgotPassword = ({ setUser }) => {
 
   if (!openChangePassword) {
     return (
-      <form 
-         onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h1>Forgot Your Password?</h1>
         <p>Enter Your Email</p>
         <input type="text" name="email" id="email" />
         <button type="submit">Submit</button>
+        {passwordLinkSent && <p>Password reset link has been sent to your email!</p>}
+        {passwordLinkError && <p>Failed to send the password reset link. Please try again.</p>}
       </form>
     );
   } else {
