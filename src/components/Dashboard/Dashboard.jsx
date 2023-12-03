@@ -27,7 +27,7 @@ const Dashboard = ({ user, darkMode, readOnly }) => {
         <h1 style={{ color: darkMode ? "white" : "darkgrey" }}>Dashboard</h1>
         <div className="homepage">
           <div>
-            Hello! Here`s what your semester looks like:
+            Welcome, Here`s your semester plan:
             {user?.semesters?.[0]?.semester.classes.map((classElement, i) => {
               if (!classElement.className) return null;
               return (
